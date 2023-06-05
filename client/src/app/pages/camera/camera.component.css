@@ -1,0 +1,67 @@
+
+
+.take-photo-container {
+    width: 100%;
+    display: flex;
+    overflow: auto;
+    min-height: 100vh;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.take-photo-button-container {
+    flex: 0 0 auto;
+    width: 239px;
+    height: 88px;
+    display: flex;
+    align-items: flex-start;
+}
+
+@media(max-width: 1200px) {
+    .take-photo-image {
+        width: 450px;
+        height: 750px;
+        margin-top: var(--dl-space-space-tripleunit);
+        padding-top: 0px;
+    }
+
+    .take-photo-container1 {
+        width: 244px;
+    }
+}
+
+
+.carousel-item img {
+    max-width: 50%;
+    /* You can adjust these values as per your need */
+    max-height: 50%;
+    display: block;
+    margin: 0 auto;
+    /* This will center the image */
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    align-items: center;
+    /* Vertically aligns the controls to the center */
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: no-repeat 50% / 100% 100%;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+
+.carousel-control-prev-icon {
+    transform: rotate(180deg);
+}
+
+

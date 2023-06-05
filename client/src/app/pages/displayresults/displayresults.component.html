@@ -1,0 +1,159 @@
+<div class="displayresults-container">
+  <header-container rootClassName="header-container-root-class-name1"></header-container>
+  
+  <ng-container *ngIf="!isLoggedIn()">
+    <alert *ngIf="result" [type]="result === 'created' ? 'success' : 'info'" [dismissible]="true">
+      {{ result === 'created' ? 'Your account has been created' : 'Stored image was updated successfully' }}
+    </alert>
+  </ng-container>
+  <ng-container *ngIf="isLoggedIn()">
+    <alert type="warning" [dismissible]="true">
+      Your data has been loaded
+    </alert>
+  </ng-container>
+  
+  <div class="content-container">
+
+    <div class="image-container">
+      <img [src]="imageData" class="displayresults-image" />
+    </div>
+
+    <div class="scrollable-content">
+      <h3>{{ !faceResults?.age && !analyzeSkin?.acne ? 'Analyzing...' : 'Your analysis results:' }}</h3>
+      <ng-lottie *ngIf="!faceResults?.age" [options]="lottie" width="200" height="200"></ng-lottie>
+
+      <ul *ngIf="faceResults?.age && analyzeSkin?.acne">
+        <li><i class="fa-sharp fa-regular fa-circle-check" style="color: #01fe7a;"></i>You look like :
+          {{faceResults?.age}} years old</li>
+        <li>Skin condition is: {{faceResults?.skinHealth}}</li>
+        <li>Wearing glasses : {{faceResults?.glass}}</li>
+        <li>Left eyelids: {{analyzeSkin?.left_eyelids}} eyelid</li>
+        <li>Right eyelids: {{analyzeSkin?.right_eyelids}} eyelid</li>
+        <li>Wrinkles: {{analyzeSkin?.wrinkles}}</li>
+        <li>Pores: {{analyzeSkin?.pores}}</li>
+        <li>Blackheads: {{analyzeSkin?.blackheads}}</li>
+        <li>Acne: {{analyzeSkin?.acne}}</li>
+        <li>Spots: {{analyzeSkin?.skin_spot}}</li>
+        <li>Dark eye circles: {{analyzeSkin?.dark_circle}}</li>
+        <li>Eyebags: {{analyzeSkin?.eye_pouch}}</li>
+        <li>Mole: {{analyzeSkin?.mole}}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tab-container">
+    <tabset>
+      <tab heading="Local Partners">
+        <table class="recommendations-table">
+          <thead>
+            <tr>
+              <th>Link</th>
+              <th>Partner</th>
+              <th>Procedure</th>
+              <th>Current</th>
+              <th>Usual</th>
+              <th>Price range</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let procedure of procedureList">
+              <tr *ngIf="procedure.location === 'local'">
+                <td>
+                  <a [href]="procedure.url" target="_blank">
+                    <img [src]="procedure.image" alt="{{ procedure.partner_name }}" class="thumbnail-image" />
+                  </a>
+                </td>
+                <td>{{ procedure.partner_name }}</td>
+                <td>{{ procedure.procedure_name }}</td>
+                <td>{{ procedure.current_price }}</td>
+                <td>{{ procedure.usual_price }}</td>
+                <td>{{ procedure.average_price }}</td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </tab>
+      <tab heading="Korean Partners">
+        <table class="recommendations-table">
+          <thead>
+            <tr>
+              <th>Link</th>
+              <th>Partner</th>
+              <th>Procedure</th>
+              <th>Current</th>
+              <th>Usual</th>
+              <th>Local price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let procedure of procedureList">
+              <tr *ngIf="procedure.location === 'korea'">
+                <td>
+                  <a [href]="procedure.url" target="_blank">
+                    <img [src]="procedure.image" alt="{{ procedure.partner_name }}" class="thumbnail-image" />
+                  </a>
+                </td>
+                <td>{{ procedure.partner_name }}</td>
+                <td>{{ procedure.procedure_name }}</td>
+                <td>{{ procedure.current_price }}</td>
+                <td>{{ procedure.usual_price }}</td>
+                <td>{{ procedure.average_price }}</td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </tab>
+    </tabset>
+  </div>
+
+<!-- ask if user wants to save data -->
+<!-- <ng-template #userInputTemplate>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Do you want to input your details for future data retrieval? This is optional.
+    </h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="onCloseClick()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <form [formGroup]="form">
+      <div class="form-group">
+        <label for="recipient-name" class="col-form-label">Email Address:</label>
+        <input type="text" class="form-control" id="email" placeholder="Input your email address"
+          formControlName="email">
+      </div>
+      <div class="form-group">
+        <label for="message-text" class="col-form-label">Password:</label>
+        <input type="password" class="form-control" id="password" placeholder="Input at least 4 digits or characters"
+          formControlName="password">
+      </div>
+      <div class="form-group">
+        <label for="message-text" class="col-form-label">Year of Birth:</label>
+        <input type="text" class="form-control" id="yearOfBirth" placeholder="Eg: 1984" formControlName="yearOfBirth">
+      </div>
+    </form>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal"
+        (click)="proceedWithoutDetails();modalRef?.hide()">No Thanks</button>
+      <button type="button" class="btn btn-primary" [disabled]="form.invalid"
+        (click)="proceedWithDetails();modalRef?.hide()">Yes</button>
+    </div>
+  </div>
+</ng-template> -->
+
+<!-- display error modal template -->
+<ng-template #errorTemplate>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Error found. You'll be redirected to the homepage</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="backToHome();modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>{{ errorMessage }}</p>
+    <div class="modal-body d-flex justify-content-center align-items-center">
+      <img [src]="detectErrorImage" class="displayerror-image"/>
+    </div>
+  </div>
+</ng-template>

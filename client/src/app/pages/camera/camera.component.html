@@ -1,0 +1,132 @@
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    crossorigin="anonymous" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65">
+
+<div class="take-photo-container">
+    <header-container rootClassName="header-container-root-class-name"></header-container>
+
+    <webcam [width]="width" [height]="height" [trigger]="trigger"></webcam>
+    <div class="take-photo-button-container">
+        <primary-button button="Snap" (click)="snapButtonClicked()"
+            rootClassName="primary-button-root-class-name2"></primary-button>
+            <primary-button button="Choose" rootClassName="primary-button-root-class-name1" [disabled]="buttonIsDisabled" (click)="proceed()" [ngStyle]="{'color': buttonIsDisabled}"></primary-button>
+
+    </div>
+
+    <carousel [(activeSlide)]="activeSlideIndex">
+        <slide *ngFor="let slide of slides; let index=index">
+            <img [src]="slide.image" alt="image slide" style="display:block; width: 50%;">
+
+            <div class="carousel-caption">
+                <h4>Image {{index}}</h4>
+            </div>
+        </slide>
+        <a class="carousel-control-next" role="button" (click)="nextSlide()">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+        <a class="carousel-control-prev" role="button" (click)="previousSlide()">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+    </carousel>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    crossorigin="anonymous" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65">
+
+<div class="take-photo-container">
+    <header-container rootClassName="header-container-root-class-name"></header-container>
+
+    <webcam [width]="width" [height]="height" [trigger]="trigger"></webcam>
+    <div class="take-photo-button-container">
+        <primary-button button="Snap" (click)="snapButtonClicked()"
+            rootClassName="primary-button-root-class-name2"></primary-button>
+            <primary-button button="Choose" rootClassName="primary-button-root-class-name1" [disabled]="buttonIsDisabled" (click)="openModal(template)" [ngStyle]="{'color': buttonIsDisabled}"></primary-button>
+
+    </div>
+
+
+    <carousel [(activeSlide)]="activeSlideIndex">
+        <slide *ngFor="let slide of slides; let index=index">
+            <img [src]="slide.image" alt="image slide" style="display:block; width: 50%;">
+
+            <div class="carousel-caption">
+                <h4>Image {{index}}</h4>
+            </div>
+        </slide>
+        <a class="carousel-control-next" role="button" (click)="nextSlide()">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+        <a class="carousel-control-prev" role="button" (click)="previousSlide()">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+    </carousel>
+
+</div>
+
+
+<ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Do you want to input your details for future data retrieval? This is optional.</h4>
+      <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      
+
+        <form [formGroup]="form">
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Email Address:</label>
+              <input type="text" class="form-control" id="email" placeholder="Input your email address" formControlName="email">
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">Password:</label>
+              <input type="password" class="form-control" id="password" placeholder="Input at least 4 digits or characters" formControlName="password">
+            </div>
+            <div class="form-group">
+                <label for="message-text" class="col-form-label">Year of Birth:</label>
+                <input type="text" class="form-control" id="yearOfBirth" placeholder="Eg: 1984" formControlName="yearOfBirth">
+              </div>
+          </form>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="proceedWithoutDetails();modalRef?.hide()">No Thanks</button>
+            <button type="button" class="btn btn-primary" [disabled]="form.invalid">Yes</button>
+          </div>
+
+
+    </div>
+  </ng-template> -->

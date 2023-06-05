@@ -1,0 +1,60 @@
+:host { 
+  display: contents; 
+}
+.contact-container {
+  width: 100%;
+  display: flex;
+  z-index: 100;
+  overflow: auto;
+  box-shadow: 5px 5px 10px 0px #d4d4d4;
+  min-height: 100vh;
+  align-items: center;
+  border-color: var(--dl-color-gray-900);
+  border-width: 1px;
+  flex-direction: column;
+}
+.contact-content {
+  width: 900px;
+  height: auto;
+  align-self: center;
+  margin-top: var(--dl-space-space-tripleunit);
+}
+.contact-iframe {
+  width: 900px;
+  height: 450px;
+  align-self: center;
+  margin-top: var(--dl-space-space-tripleunit);
+  margin-bottom: var(--dl-space-space-tripleunit);
+}
+.contact-link {
+  display: contents;
+}
+.contact-icon {
+  fill: #2dc106;
+  width: 24px;
+  height: 24px;
+  margin-top: var(--dl-space-space-doubleunit);
+  text-decoration: none;
+}
+@media(max-width: 1200px) {
+  .contact-icon {
+    fill: #0fa306;
+    margin-top: var(--dl-space-space-unit);
+    border-color: rgba(24, 25, 31, 0);
+    border-width: 1px;
+  }
+
+  .custom-input {
+    width: 400px; /* Adjust the width as per your requirement */
+    height: 400px; /* Adjust the height as per your requirement */
+    resize: none; /* Prevents resizing of the textarea */
+  }
+
+  .scrollable-container {
+    max-height: 400px; /* Adjust the maximum height as per your requirement */
+    overflow-y: auto;
+  }
+  
+  
+
+}

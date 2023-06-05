@@ -1,0 +1,72 @@
+
+:host { 
+  display: contents; 
+}
+.primary-button-container {
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.primary-button-button {
+  color: var(--dl-color-gray-white);
+  align-self: center;
+  transition: 0.3s;
+  padding-top: 12px;
+  border-width: 0px;
+  padding-left: 32px;
+  border-radius: var(--dl-radius-radius-radius6);
+  padding-right: 32px;
+  padding-bottom: 12px;
+  background-color: var(--dl-color-purple-default);
+}
+.primary-button-button:hover {
+  background-color: var(--dl-color-purple-900);
+}
+.primary-button-button:active {
+  background-color: var(--dl-color-purple-1000);
+}
+.primary-button-root-class-name {
+  top: 0px;
+  left: 198px;
+  position: absolute;
+}
+.primary-button-root-class-name1 {
+  left: 616px;
+  width: auto;
+  bottom: 75px;
+  position: static;
+  margin-top: var(--dl-space-space-doubleunit);
+  margin-left: var(--dl-space-space-unit);
+}
+.primary-button-root-class-name2 {
+  left: 483px;
+  bottom: 75px;
+  position: static;
+  margin-top: var(--dl-space-space-doubleunit);
+  margin-right: var(--dl-space-space-unit);
+}
+@media(max-width: 1200px) {
+  .primary-button-root-class-name1 {
+    position: static;
+    margin-top: var(--dl-space-space-doubleunit);
+    margin-left: var(--dl-space-space-unit);
+  }
+  .primary-button-root-class-name2 {
+    position: static;
+    margin-top: var(--dl-space-space-doubleunit);
+    margin-right: var(--dl-space-space-unit);
+  }
+}
+
+button.disabled {
+  background-color: #ccc; /* This color is for disabled state */
+  color: #888;
+}
+
+button.enabled {
+  background-color: #8C30F5; /* This color is for enabled state */
+  color: #fff;
+}
+
