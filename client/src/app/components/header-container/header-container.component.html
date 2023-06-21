@@ -1,77 +1,39 @@
-<div
-  data-role="Header"
-  class="header-container-header-container"
-  [ngClass]="rootClassName"
->
+<div data-role="Header" class="header-container-header-container" [ngClass]="rootClassName">
   <header class="header-container-header">
     <div class="header-container-logo">
       <button routerLink="/" class="header-container-navlink">
-        <img
-          [attr.alt]="Image_alt"
-          [attr.src]="Image_src"
-          class="header-container-image"
-        />
+        <img [attr.alt]="Image_alt" [attr.src]="Image_src" class="header-container-image" />
       </button>
     </div>
     <div class="header-container-menu">
-      <button routerLink="/" id="about" class="header-container-navlink1">
-        {{ about }}
-      </button>
-      <span id="menu" class="header-container-text">{{ menu }}</span>
-      <button routerLink="/partners" id="partners" class="header-container-navlink2">
-        {{ partners }}
-      </button>
-      <button routerLink="/contact" id="contact" class="header-container-navlink3">
-        {{ contact }}
-      </button>
-      <!-- <a routerLink="/login" id="login" class="header-container-navlink4"> -->
-
-
-
-        <!-- <button (click)="loadLoginModal()" id="login" class="header-container-navlink4">
-        {{ login }}
-        </button> -->
-
-        <!-- Conditionally displayed based on isLoggedIn variable -->
-
-        <!-- <ng-container *ngIf="!isLoggedIn">
-          <button (click)="loadLoginModal()" id="login" class="header-container-navlink4">
-            {{ login }}
-          </button>
-        </ng-container>
-        <ng-container *ngIf="isLoggedIn">
-          <button (click)="logout()" id="logout" class="header-container-navlink4">
-            {{ logoutButton }}
-          </button>
-          <button routerLink="/my-results" id="my-results" class="header-container-navlink4">
-            {{ myResults }}
-          </button>
-        </ng-container> -->
-
-  <ng-container *ngIf="!(isLoggedIn() || false)">
-    <button (click)="loadLoginModal()" id="login" class="header-container-navlink4">
-      {{ login }}
-    </button>
-  </ng-container>
-  <ng-container *ngIf="(isLoggedIn() || false)">
-    <button (click)="logout()" id="logout" class="header-container-navlink4">
-      {{ logoutButton }}
-    </button>
-  </ng-container>
+      <button routerLink="/" id="about" class="header-container-navlink1">{{ about }}</button>
+      <button routerLink="/menu" id="menu" class="header-container-navlink1">{{ menu }}</button>
+      <button routerLink="/partners" id="partners" class="header-container-navlink2">{{ partners }}</button>
+      <button routerLink="/contact" id="contact" class="header-container-navlink3">{{ contact }}</button>
+      <ng-container *ngIf="!(isLoggedIn() || false)">
+        <button (click)="loadLoginModal()" id="login" class="header-container-navlink4">
+          {{ login }}
+        </button>
+      </ng-container>
+      <ng-container *ngIf="(isLoggedIn() || false)">
+        <button (click)="logout()" id="logout" class="header-container-navlink4">
+          {{ logoutButton }}
+        </button>
+      </ng-container>
 
     </div>
     <div class="header-container-container"><store-banner></store-banner></div>
     <div data-role="BurgerMenu" class="header-container-burger-menu">
       <svg viewBox="0 0 1024 1024" class="header-container-menu1">
         <path
-          d="M810.667 725.333h-597.333c-47.061 0-85.333 38.272-85.333 85.333s38.272 85.333 85.333 85.333h597.333c47.061 0 85.333-38.272 85.333-85.333s-38.272-85.333-85.333-85.333z"
-        ></path>
+          d="M810.667 725.333h-597.333c-47.061 0-85.333 38.272-85.333 85.333s38.272 85.333 85.333 85.333h597.333c47.061 0 85.333-38.272 85.333-85.333s-38.272-85.333-85.333-85.333z">
+        </path>
         <path
-          d="M810.667 426.667h-597.333c-47.061 0-85.333 38.272-85.333 85.333s38.272 85.333 85.333 85.333h597.333c47.061 0 85.333-38.272 85.333-85.333s-38.272-85.333-85.333-85.333z"
-        ></path>
+          d="M810.667 426.667h-597.333c-47.061 0-85.333 38.272-85.333 85.333s38.272 85.333 85.333 85.333h597.333c47.061 0 85.333-38.272 85.333-85.333s-38.272-85.333-85.333-85.333z">
+        </path>
         <path
-          d="M810.667 128h-597.333c-47.061 0-85.333 38.272-85.333 85.333s38.272 85.333 85.333 85.333h597.333c47.061 0 85.333-38.272 85.333-85.333s-38.272-85.333-85.333-85.333z"
-        ></path>
+          d="M810.667 128h-597.333c-47.061 0-85.333 38.272-85.333 85.333s38.272 85.333 85.333 85.333h597.333c47.061 0 85.333-38.272 85.333-85.333s-38.272-85.333-85.333-85.333z">
+        </path>
       </svg>
     </div>
   </header>
@@ -192,17 +154,12 @@
         <input type="password" class="form-control" id="password" placeholder="Input at least 4 digits or characters"
           formControlName="password">
       </div>
-      <!-- <div class="form-group">
-        <label for="message-text" class="col-form-label">Year of Birth:</label>
-        <input type="text" class="form-control" id="yearOfBirth" placeholder="Eg: 1984" formControlName="yearOfBirth">
-      </div> -->
+
     </form>
     <div class="modal-footer">
-      <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">No Thanks</button> -->
 
-      <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal"
-        (click)="proceedWithoutDetails();modalRef?.hide()">No Thanks</button> -->
-      <button type="button" class="btn btn-primary" style="background-color: #8C30F5;" (click)="proceedToLogin()" [disabled]="form.invalid">Login</button>
+      <button type="button" class="btn btn-primary" style="background-color: #8C30F5;" (click)="proceedToLogin()"
+        [disabled]="form.invalid">Login</button>
     </div>
   </div>
 </ng-template>
@@ -210,13 +167,12 @@
 <ng-template #errorTemplate>
   <div class="modal-header">
     <h4 class="modal-title pull-left">Account not found. You'll be redirected to the homepage</h4>
-    <button type="button" class="btn-close close pull-right" aria-label="Close"
-      (click)="backToHome();modalRef?.hide()">
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="backToHome();modalRef?.hide()">
       <span aria-hidden="true" class="visually-hidden">&times;</span>
     </button>
   </div>
   <div class="modal-body d-flex justify-content-center align-items-center">
-    <img [src]="errorImage" class="displayerror-image"/>
+    <img [src]="errorImage" class="displayerror-image" />
   </div>
 </ng-template>
 
@@ -232,12 +188,11 @@
 <ng-template #logoutTemplate>
   <div class="modal-header d-flex justify-content-center align-items-center">
     <h4 class="modal-title">You've logged out</h4>
-    <button type="button" class="btn-close close pull-right" aria-label="Close"
-      (click)="modalRef?.hide()">
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
       <span aria-hidden="true" class="visually-hidden">&times;</span>
     </button>
   </div>
   <div class="modal-body d-flex justify-content-center align-items-center">
-    <img [src]="logoutImage" class="displayerror-image"/>
+    <img [src]="logoutImage" class="displayerror-image" />
   </div>
 </ng-template>

@@ -48,8 +48,6 @@ export class DisplayresultsComponent implements OnInit, AfterViewInit {
       async (params) => {
         this.hashedText = params['hashedText'];
 
-        // this.yearOfBirth = this.hashedText.substring(40, 44);
-        // console.log("this.bundleId: ",this.yearOfBirth);
       });
 
     if (!this.loginSvc.isLoggedIn) {
@@ -67,7 +65,6 @@ export class DisplayresultsComponent implements OnInit, AfterViewInit {
         // this.form = this.createForm();
 
         if (this.hashedText == "null") {
-          console.log("this.hashedText is null");
           this.proceedWithoutDetails();
         }
         else {
@@ -77,16 +74,10 @@ export class DisplayresultsComponent implements OnInit, AfterViewInit {
     }
     else {
       this.imageData = this.loginSvc.imageData;
-      // this.analyzeSkin = this.loginSvc.analyzeSkin;
       this.analyzeSkin = this.loginSvc.analyzeSkin !== null ? this.loginSvc.analyzeSkin : undefined;
-      console.log("this.analyzeSkin: ", this.analyzeSkin);
       this.procedureList = this.loginSvc.procedureList;
-      // this.result = this.loginSvc.result;
       this.result = this.loginSvc.result !== null ? this.loginSvc.result : undefined;
-      console.log("this.result: ", this.result);
-      // this.faceResults = this.loginSvc.faceResults;
       this.faceResults = this.loginSvc.faceResults !== null ? this.loginSvc.faceResults : undefined;
-      console.log("this.faceResults: ", this.faceResults);
     }
 
   }

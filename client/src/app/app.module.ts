@@ -24,6 +24,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { Home } from './pages/home/home.component';
 import { Contact } from './pages/contact/contact.component';
 import { Partners } from './pages/partners/partners.component';
+import { MenuComponent } from './pages/menu/menu.component';
 
 
 
@@ -58,6 +59,7 @@ const routes = [
   // },
   {path:"", component: Home},
   {path:"contact", component: Contact},
+  {path:"menu", component: MenuComponent},
   {path: "partners", component: Partners},
   {path: "camera", component: CameraComponent},
   {path: "upload", component: UploadComponent},
@@ -75,7 +77,8 @@ const routes = [
     DisplayresultsComponent,
     Home,
     Contact,
-    Partners
+    Partners,
+    MenuComponent
     ],
   imports: [
     BrowserModule, 

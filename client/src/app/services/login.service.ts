@@ -80,49 +80,6 @@ export class LoginService {
     }
   }
 
-  // saveisLoggedIn() {
-  //   localStorage.setItem("isLoggedIn", this.isLoggedIn.toString());
-  //   this.scheduleDeletion("isLoggedIn", 5 * 60 * 1000); // 5 minutes
-
-  // }
-
-  // saveImageData(imageData: any) {
-  //   localStorage.setItem("imageData", JSON.stringify(imageData));
-  //   this.scheduleDeletion("imageData", 5 * 60 * 1000); // 5 minutes
-
-  // }
-
-  // saveAnalyzeSkinResult(analyzeSkinResult: AnaylzeSkinResult) {
-  //   localStorage.setItem("analyzeSkinResult", JSON.stringify(analyzeSkinResult));
-  //   this.scheduleDeletion("analyzeSkinResult", 5 * 60 * 1000); // 5 minutes
-
-  // }
-
-  // saveProcedureList(procedureList: Procedure[]) {
-  //   localStorage.setItem("procedureList", JSON.stringify(procedureList));
-  //   this.scheduleDeletion("procedureList", 5 * 60 * 1000); // 5 minutes
-
-  // }
-
-  // saveUploadOrUpdateImageResult(uploadOrUpdateImage: any) {
-  //   localStorage.setItem("uploadOrUpdateImage", JSON.stringify(uploadOrUpdateImage));
-  //   this.scheduleDeletion("uploadOrUpdateImage", 5 * 60 * 1000); // 5 minutes
-
-  // }
-
-  // saveDetectFaceResult(detectResponse: DetectFaceResult) {
-  //   localStorage.setItem("detectResponse", JSON.stringify(detectResponse));
-  //   this.scheduleDeletion("detectResponse", 5 * 60 * 1000); // 5 minutes
-
-  // }
-
-  // //automatically delete data after specified duration
-  // scheduleDeletion(key: string, duration: number) {
-  //   setTimeout(() => {
-  //     localStorage.removeItem(key);
-  //   }, duration);
-  // }
-
   clearData() {
     // Clear all stored data from localStorage
     this.cacheSvc.clearData();

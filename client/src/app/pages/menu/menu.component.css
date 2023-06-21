@@ -1,0 +1,27 @@
+.image-frame {
+    width: 900px;
+    height: 1800px;
+    align-self: center;
+    margin-top: var(--dl-space-space-tripleunit);
+    margin-bottom: var(--dl-space-space-tripleunit);
+  }
+
+  .menu-container {
+    width: 100%;
+    display: flex;
+    z-index: 100;
+    overflow: auto;
+    box-shadow: 5px 5px 10px 0px #d4d4d4;
+    min-height: 100vh;
+    align-items: center;
+    border-color: var(--dl-color-gray-900);
+    border-width: 1px;
+    flex-direction: column;
+  }
+
+  .menu-content {
+    width: 900px;
+    height: auto;
+    align-self: center;
+    margin-top: var(--dl-space-space-tripleunit);
+  }

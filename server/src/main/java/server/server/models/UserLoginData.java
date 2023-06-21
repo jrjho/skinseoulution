@@ -21,12 +21,6 @@ public class UserLoginData implements Serializable {
     public void setHashedText(String hashedText) {
         this.hashedText = hashedText;
     }
-    // public String getYearOfBirth() {
-    //     return yearOfBirth;
-    // }
-    // public void setYearOfBirth(String yearOfBirth) {
-    //     this.yearOfBirth = yearOfBirth;
-    // }
 
     public static UserLoginData populate(ResultSet rs) throws SQLException{
         final UserLoginData userDataresults = new UserLoginData();

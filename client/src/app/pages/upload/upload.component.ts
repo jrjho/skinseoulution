@@ -10,7 +10,6 @@ import { ConnectToServerService } from 'src/app/services/connect-to-server.servi
 })
 export class UploadComponent implements OnInit{
   imageData = "";
-  form!: FormGroup;
   blob!: Blob;
   
 
@@ -25,7 +24,6 @@ export class UploadComponent implements OnInit{
     }
 
     this.imageData = this.camerasvc.imageData;
-    // this.createForm();
     this.blob = this.dataURItoBlob(this.imageData);
   }
 

@@ -32,15 +32,7 @@ export class Home implements OnInit, AfterViewInit {
 
 
   rawn8vf: string = ' '
-  constructor(private title: Title, private meta: Meta, private router: Router, private connectSvc: ConnectToServerService, private loginSvc: LoginService, private fb: FormBuilder, private modalSvc: BsModalService) {
-    // this.title.setTitle('project')
-    // this.meta.addTags([
-    //   {
-    //     property: 'og:title',
-    //     content: 'project',
-    //   },
-    // ])
-  }
+  constructor(private title: Title, private meta: Meta, private router: Router, private connectSvc: ConnectToServerService, private loginSvc: LoginService, private fb: FormBuilder, private modalSvc: BsModalService) {}
 
   ngOnInit(): void {
     this.form = this.createForm();
@@ -56,9 +48,7 @@ export class Home implements OnInit, AfterViewInit {
   }
 
   onFileSelected(event: any) {
-    console.log('onFileSelected called');
     const file = event.target.files[0];
-    console.log('Selected file:', file);
     if (file) {
       const validExtensions = ['jpg', 'jpeg', 'png'];
       const fileExt = file.name.split('.').pop().toLowerCase();
@@ -67,7 +57,6 @@ export class Home implements OnInit, AfterViewInit {
 
       if (validExtensions.includes(fileExt)) {
         if (file.size > maxSize) {
-          console.log('File size too large');
           this.router.navigate(['/']);
           alert('File size should be no larger than 2MB.');
         } else {
@@ -82,7 +71,6 @@ export class Home implements OnInit, AfterViewInit {
           reader.readAsDataURL(file);
         }
       } else {
-        console.log('Invalid file extension');
         this.router.navigate(['/']); // navigates to home page
         alert('Invalid file type, only these file types are allowed: ' + validExtensions.join(', '));
       }
@@ -95,26 +83,8 @@ export class Home implements OnInit, AfterViewInit {
 
   async proceedToDelete() {
 
-    // try {
-    //   const response = await this.connectSvc.deleteAccount(this.loginSvc.hashedText);
-    //   console.log("Response: ", response);
-    //   if(response.deleteResponse == "Success"){ 
-    //     this.loginSvc.isLoggedIn = false;
-    //     this.router.navigate(['/']);
-    //     this.modalRef = this.modalSvc.show(this.deleteSuccessTemplate);
-    //   }
-    //   if(response == "Failed"){
-
-    //   }
-    //   // Process the response as needed, update UI, etc.
-    // } catch (error) {
-    //   console.error("Error:", error);
-    //   // Handle the error, display error message, etc.
-    // }
-
     await this.connectSvc.deleteAccount(this.loginSvc.hashedText)
       .then((response) => {
-        console.log("response is: " + response)
         const result = response as { deleteResponse: any };
         if (result.deleteResponse == "Success") {
           this.loginSvc.isLoggedIn = false;

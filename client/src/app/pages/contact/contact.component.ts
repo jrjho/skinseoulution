@@ -49,7 +49,6 @@ export class Contact implements OnInit{
     const content = this.form.get('content')?.value;
     await this.connectSvc.sendContactForm(name, userEmail, subject, content)
     .then((result) => {
-      console.log(result);
       const fromServer = result as { emailSentStatus: any };
         this.emailSentStatus = fromServer.emailSentStatus;
         if(this.emailSentStatus == "Success"){
@@ -58,7 +57,6 @@ export class Contact implements OnInit{
             this.modalRef.hide(); 
           }
         }
-        console.log("emailSentStatus",this.emailSentStatus);
     })
     .catch((error) => {
       console.log(error);

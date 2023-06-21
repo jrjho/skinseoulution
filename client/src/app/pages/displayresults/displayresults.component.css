@@ -57,21 +57,5 @@
   height: 120px;
 }
 
-/* .recommendations-table th:first-child,
-.recommendations-table td:first-child {
-  width: 100px; 
-} */
-/* might not use this */
-.recommendations-container {
-  /* padding: 20px; */
-  width: 762px;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  border: 1px solid #ccc;
-  margin-top: 20px;
-}
-
 
 

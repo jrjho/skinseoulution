@@ -47,8 +47,6 @@ public class ClientRequestController {
     public ResponseEntity<String> contact(@RequestParam String name, @RequestParam String userEmail, @RequestParam String subject, @RequestParam String content) {
         try {
         String status = emailSvc.sendSimpleMail(name, userEmail, subject, content);
-        System.out.println("status is: " + status);
-
         JsonObject response = Json.createObjectBuilder()
             .add("emailSentStatus", status)
             .build();
@@ -95,7 +93,6 @@ public class ClientRequestController {
 
     @PostMapping(path = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> upload(@RequestPart MultipartFile image, @RequestPart String key) {
-        System.out.println("hello");
         try {
             JsonString response = this.dbSvc.uploadOrUpdateImage(image, key);
             return ResponseEntity.ok(response.toString());
@@ -137,7 +134,6 @@ public class ClientRequestController {
             JsonObjectBuilder builder = Json.createObjectBuilder();
 
             if (!userDeleted) {
-                System.out.println("user deleted");
                 builder.add("deleteResponse", "Failed");
                 JsonObject response = builder.build();
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response.toString());
